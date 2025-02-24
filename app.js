@@ -24,7 +24,6 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); // ✅ แก้ไขให้ใช้งานได้ถูกต้อง
 app.use(cors({
-    origin: "http://localhost:5173",  // อนุญาตเฉพาะ Vue App
     credentials: true, // อนุญาตส่ง Cookie และ Header
 }));
 
