@@ -7,10 +7,7 @@ const database = require('./database');
 require('dotenv').config();
 // Connect MongoDB
 mongoose.Promise = global.Promise;
-mongoose.connect(database.db, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => {
+mongoose.connect(database.db).then(() => {
     console.log('Database connected successfully');
 }).catch(error => {
     console.log('Cannot connect to database: ' + error);
@@ -24,7 +21,10 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); // ✅ แก้ไขให้ใช้งานได้ถูกต้อง
 app.use(cors({
-    credentials: true, // อนุญาตส่ง Cookie และ Header
+    origin: 'https://ncc-computerrepair.com', // หรือกำหนดเป็น 'http://localhost:5173'
+    methods: 'GET,POST,PUT,DELETE',
+    allowedHeaders: 'Content-Type,Authorization',
+    credentials: true
 }));
 
 // API Routes
