@@ -1,3 +1,3 @@
 module.exports = {
-    db: 'mongodb://localhost:27017/ncc-rapair'
+    db: 'mongodb://89.116.33.183:27017/ncc-rapair'
 }
